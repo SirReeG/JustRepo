@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="market_title">Рынок</string>
+    <string name="market_tab_all">Все акции</string>
+    <string name="market_tab_gainers">Топ роста</string>
+    <string name="market_tab_losers">Топ падения</string>
+    <string name="market_tab_funds">Фонды</string>
+    <string name="market_search_hint">Тикер или название</string>
+    <string name="market_empty">Пока пусто. Потяни список вниз, чтобы обновить.</string>
+    <string name="market_index_caption">Индекс МосБиржи</string>
+</resources>

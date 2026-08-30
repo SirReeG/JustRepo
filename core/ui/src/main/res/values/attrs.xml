@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--
+      Кастомные атрибуты для своих View. Объявляем их в :core:ui,
+      чтобы любой feature-модуль мог использовать их в своих layout'ах.
+    -->
+    <declare-styleable name="DeltaView">
+        <attr name="deltaPositiveColor" format="color" />
+        <attr name="deltaNegativeColor" format="color" />
+        <attr name="deltaNeutralColor" format="color" />
+        <!-- Рисовать ли подложку-«чип» под текстом. -->
+        <attr name="deltaShowChip" format="boolean" />
+        <!-- Прозрачность подложки: 0..1 от основного цвета. -->
+        <attr name="deltaChipAlpha" format="float" />
+    </declare-styleable>
+
+    <declare-styleable name="SparklineView">
+        <attr name="sparkLineWidth" format="dimension" />
+        <attr name="sparkUpColor" format="color" />
+        <attr name="sparkDownColor" format="color" />
+        <attr name="sparkFillAlpha" format="float" />
+        <attr name="sparkShowBaseline" format="boolean" />
+    </declare-styleable>
+</resources>

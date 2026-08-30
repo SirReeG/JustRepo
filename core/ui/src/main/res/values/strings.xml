@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ui_placeholder_dash">—</string>
+    <string name="ui_favorite_add">Добавить в избранное</string>
+    <string name="ui_favorite_remove">Убрать из избранного</string>
+    <string name="ui_retry">Повторить</string>
+    <string name="ui_error_network">Не удалось загрузить данные. Проверь соединение.</string>
+    <string name="ui_updated_at">Обновлено %1$s</string>
+</resources>

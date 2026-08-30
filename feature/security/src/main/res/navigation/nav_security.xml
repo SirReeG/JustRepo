@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_security"
+    app:startDestination="@id/securityFragment">
+
+    <fragment
+        android:id="@+id/securityFragment"
+        android:name="ru.reeg.moexmonitor.feature.security.SecurityFragment"
+        tools:layout="@layout/fragment_security">
+
+        <argument
+            android:name="secId"
+            app:argType="string" />
+
+        <!--
+          Deep link — контракт между модулями. Любая фича может открыть карточку
+          бумаги, не зная про классы :feature:security.
+        -->
+        <deepLink app:uri="moexmonitor://security/{secId}" />
+    </fragment>
+</navigation>

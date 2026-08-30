@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?android:attr/colorBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/space_xl">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back"
+            app:titleTextColor="@color/text_primary"
+            tools:title="SBER" />
+
+        <TextView
+            android:id="@+id/textName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_l"
+            android:textAppearance="@style/TextAppearance.Moex.Caption"
+            tools:text="Сбербанк России" />
+
+        <TextView
+            android:id="@+id/textPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_l"
+            android:layout_marginTop="@dimen/space_xs"
+            android:textAppearance="@style/TextAppearance.Moex.PriceLarge"
+            tools:text="281,39 ₽" />
+
+        <ru.reeg.moexmonitor.core.ui.widget.DeltaView
+            android:id="@+id/viewDelta"
+            style="@style/Widget.Moex.Delta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/space_l"
+            android:layout_marginTop="@dimen/space_s"
+            tools:text="+1,25 %" />
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Moex.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_l"
+            android:layout_marginTop="@dimen/space_l">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="@dimen/space_l">
+
+                <ru.reeg.moexmonitor.core.ui.widget.SparklineView
+                    android:id="@+id/sparkline"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/spark_height"
+                    app:sparkFillAlpha="0.18"
+                    app:sparkLineWidth="2.5dp"
+                    app:sparkShowBaseline="false" />
+
+                <TextView
+                    android:id="@+id/textChartEmpty"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:paddingVertical="@dimen/space_l"
+                    android:text="@string/security_chart_empty"
+                    android:textAppearance="@style/TextAppearance.Moex.Caption"
+                    android:visibility="gone" />
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabsRange"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/space_s"
+                    app:tabMode="fixed" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.card.MaterialCardView
+            style="@style/Widget.Moex.Card"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/space_l"
+            android:layout_marginTop="@dimen/space_m">
+
+            <TableLayout
+                android:id="@+id/tableStats"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/space_l"
+                android:stretchColumns="0,1" />
+        </com.google.android.material.card.MaterialCardView>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>

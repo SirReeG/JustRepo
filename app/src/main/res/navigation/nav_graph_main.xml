@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Корневой граф приложения. Сами экраны живут в feature-модулях,
+  здесь мы только собираем их графы вместе через <include>.
+-->
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph_main"
+    app:startDestination="@id/nav_market">
+
+    <include app:graph="@navigation/nav_market" />
+    <include app:graph="@navigation/nav_watchlist" />
+    <include app:graph="@navigation/nav_news" />
+    <include app:graph="@navigation/nav_security" />
+</navigation>

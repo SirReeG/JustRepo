@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_market"
+    app:startDestination="@id/marketFragment">
+
+    <fragment
+        android:id="@+id/marketFragment"
+        android:name="ru.reeg.moexmonitor.feature.market.MarketFragment"
+        android:label="@string/market_title"
+        tools:layout="@layout/fragment_market"
+        xmlns:tools="http://schemas.android.com/tools" />
+</navigation>

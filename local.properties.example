@@ -1,0 +1,6 @@
+# Скопируй в local.properties, если Android Studio не создала файл сама.
+# Путь к Android SDK:
+#   macOS:   /Users/<имя>/Library/Android/sdk
+#   Linux:   /home/<имя>/Android/Sdk
+#   Windows: C:\\Users\\<имя>\\AppData\\Local\\Android\\Sdk
+sdk.dir=/path/to/Android/Sdk

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MOEX Монитор</string>
+    <string name="nav_tab_market">Рынок</string>
+    <string name="nav_tab_watchlist">Избранное</string>
+    <string name="nav_tab_news">Новости</string>
+</resources>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="security_range_week">Неделя</string>
+    <string name="security_range_month">Месяц</string>
+    <string name="security_range_year">Год</string>
+    <string name="security_stat_open">Открытие</string>
+    <string name="security_stat_high">Максимум</string>
+    <string name="security_stat_low">Минимум</string>
+    <string name="security_stat_volume">Оборот</string>
+    <string name="security_stat_lot">В лоте</string>
+    <string name="security_stat_board">Режим</string>
+    <string name="security_chart_empty">Нет данных для графика</string>
+</resources>

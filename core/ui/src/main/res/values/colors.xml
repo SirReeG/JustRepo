@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Палитра приложения. Держим её в :core:ui, чтобы фичи не заводили свои цвета. -->
+    <color name="brand_primary">#1B5FCB</color>
+    <color name="brand_primary_dark">#0F3F8F</color>
+    <color name="brand_on_primary">#FFFFFFFF</color>
+
+    <color name="market_up">#0F9D58</color>
+    <color name="market_down">#DB3B3B</color>
+    <color name="market_neutral">#7A8899</color>
+
+    <color name="surface_app">#FFF7F8FA</color>
+    <color name="surface_card">#FFFFFFFF</color>
+    <color name="divider">#1F000000</color>
+
+    <color name="text_primary">#FF12161C</color>
+    <color name="text_secondary">#FF5C6673</color>
+
+    <color name="star_active">#FFC107</color>
+    <color name="star_inactive">#FFB9C1CC</color>
+</resources>

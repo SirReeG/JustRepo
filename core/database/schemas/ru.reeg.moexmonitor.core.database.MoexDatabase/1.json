@@ -1,0 +1,259 @@
+{
+  "formatVersion": 1,
+  "database": {
+    "version": 1,
+    "identityHash": "cdcc271d836e8cf36bcd16e1b8386e20",
+    "entities": [
+      {
+        "tableName": "securities",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`secId` TEXT NOT NULL, `shortName` TEXT NOT NULL, `segment` TEXT NOT NULL, `board` TEXT NOT NULL, `lotSize` INTEGER NOT NULL, `prevPrice` REAL, `last` REAL, `changePercent` REAL, `openPrice` REAL, `highPrice` REAL, `lowPrice` REAL, `valueToday` REAL, `updatedAtMillis` INTEGER NOT NULL, PRIMARY KEY(`secId`))",
+        "fields": [
+          {
+            "fieldPath": "secId",
+            "columnName": "secId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "shortName",
+            "columnName": "shortName",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "segment",
+            "columnName": "segment",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "board",
+            "columnName": "board",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lotSize",
+            "columnName": "lotSize",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "prevPrice",
+            "columnName": "prevPrice",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "last",
+            "columnName": "last",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "changePercent",
+            "columnName": "changePercent",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "openPrice",
+            "columnName": "openPrice",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "highPrice",
+            "columnName": "highPrice",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "lowPrice",
+            "columnName": "lowPrice",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "valueToday",
+            "columnName": "valueToday",
+            "affinity": "REAL",
+            "notNull": false
+          },
+          {
+            "fieldPath": "updatedAtMillis",
+            "columnName": "updatedAtMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "secId"
+          ]
+        },
+        "indices": [
+          {
+            "name": "index_securities_segment",
+            "unique": false,
+            "columnNames": [
+              "segment"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_securities_segment` ON `${TABLE_NAME}` (`segment`)"
+          },
+          {
+            "name": "index_securities_changePercent",
+            "unique": false,
+            "columnNames": [
+              "changePercent"
+            ],
+            "orders": [],
+            "createSql": "CREATE INDEX IF NOT EXISTS `index_securities_changePercent` ON `${TABLE_NAME}` (`changePercent`)"
+          }
+        ],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "candles",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`secId` TEXT NOT NULL, `range` TEXT NOT NULL, `begin` TEXT NOT NULL, `openPrice` REAL NOT NULL, `closePrice` REAL NOT NULL, `highPrice` REAL NOT NULL, `lowPrice` REAL NOT NULL, `volume` REAL NOT NULL, PRIMARY KEY(`secId`, `range`, `begin`))",
+        "fields": [
+          {
+            "fieldPath": "secId",
+            "columnName": "secId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "range",
+            "columnName": "range",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "begin",
+            "columnName": "begin",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "openPrice",
+            "columnName": "openPrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "closePrice",
+            "columnName": "closePrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "highPrice",
+            "columnName": "highPrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "lowPrice",
+            "columnName": "lowPrice",
+            "affinity": "REAL",
+            "notNull": true
+          },
+          {
+            "fieldPath": "volume",
+            "columnName": "volume",
+            "affinity": "REAL",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "secId",
+            "range",
+            "begin"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "news",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER NOT NULL, `title` TEXT NOT NULL, `publishedAt` TEXT NOT NULL, `tag` TEXT, `body` TEXT, PRIMARY KEY(`id`))",
+        "fields": [
+          {
+            "fieldPath": "id",
+            "columnName": "id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "title",
+            "columnName": "title",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "publishedAt",
+            "columnName": "publishedAt",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "tag",
+            "columnName": "tag",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "body",
+            "columnName": "body",
+            "affinity": "TEXT",
+            "notNull": false
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "id"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      },
+      {
+        "tableName": "watchlist",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`secId` TEXT NOT NULL, `addedAtMillis` INTEGER NOT NULL, PRIMARY KEY(`secId`))",
+        "fields": [
+          {
+            "fieldPath": "secId",
+            "columnName": "secId",
+            "affinity": "TEXT",
+            "notNull": true
+          },
+          {
+            "fieldPath": "addedAtMillis",
+            "columnName": "addedAtMillis",
+            "affinity": "INTEGER",
+            "notNull": true
+          }
+        ],
+        "primaryKey": {
+          "autoGenerate": false,
+          "columnNames": [
+            "secId"
+          ]
+        },
+        "indices": [],
+        "foreignKeys": []
+      }
+    ],
+    "views": [],
+    "setupQueries": [
+      "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'cdcc271d836e8cf36bcd16e1b8386e20')"
+    ]
+  }
+}

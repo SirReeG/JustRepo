@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="market_up">#2BD07A</color>
+    <color name="market_down">#FF6B6B</color>
+    <color name="market_neutral">#8B96A5</color>
+
+    <color name="surface_app">#FF0E1116</color>
+    <color name="surface_card">#FF171C23</color>
+    <color name="divider">#33FFFFFF</color>
+
+    <color name="text_primary">#FFF2F5F9</color>
+    <color name="text_secondary">#FF9AA6B4</color>
+
+    <color name="star_inactive">#FF4A5462</color>
+</resources>

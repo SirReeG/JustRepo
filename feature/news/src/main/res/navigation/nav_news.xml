@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_news"
+    app:startDestination="@id/newsFragment">
+
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="ru.reeg.moexmonitor.feature.news.NewsFragment"
+        android:label="@string/news_title"
+        tools:layout="@layout/fragment_news">
+
+        <action
+            android:id="@+id/action_news_to_detail"
+            app:destination="@id/newsDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="ru.reeg.moexmonitor.feature.news.NewsDetailFragment"
+        android:label="@string/news_detail_title"
+        tools:layout="@layout/fragment_news_detail">
+
+        <argument
+            android:name="newsId"
+            app:argType="long" />
+    </fragment>
+</navigation>

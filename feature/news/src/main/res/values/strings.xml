@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="news_title">Новости MOEX</string>
+    <string name="news_empty">Новостей пока нет. Потяни вниз, чтобы обновить.</string>
+    <string name="news_detail_title">Новость</string>
+    <string name="news_loading_body">Загружаем текст…</string>
+</resources>
