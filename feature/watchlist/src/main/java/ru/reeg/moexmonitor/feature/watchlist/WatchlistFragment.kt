@@ -21,10 +21,9 @@ import ru.reeg.moexmonitor.feature.watchlist.di.DaggerWatchlistComponent
 class WatchlistFragment : RxFragment(R.layout.fragment_watchlist) {
 
     @Inject
-    lateinit var viewModelFactory: ViewModelFactory
+    lateinit var viewModel: WatchlistViewModel
 
     private val binding by viewBinding(FragmentWatchlistBinding::bind)
-    private val viewModel: WatchlistViewModel by viewModels { viewModelFactory }
 
     private val adapter by lazy {
         SecurityQuoteAdapter(
@@ -38,13 +37,10 @@ class WatchlistFragment : RxFragment(R.layout.fragment_watchlist) {
         )
     }
 
-    override fun onAttach(context: Context) {
-        DaggerWatchlistComponent.factory().create(coreComponent()).inject(this)
-        super.onAttach(context)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        DaggerWatchlistComponent.factory().create(coreComponent()).inject(this)
         binding.recyclerWatchlist.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerWatchlist.adapter = adapter
         binding.recyclerWatchlist.addItemDecoration(

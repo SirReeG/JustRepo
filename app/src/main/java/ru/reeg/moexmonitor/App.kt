@@ -12,7 +12,7 @@ import ru.reeg.moexmonitor.core.di.DaggerCoreComponent
  * by lazy — чтобы Room и Retrofit создавались при первом обращении,
  * а не в onCreate: старт приложения от этого заметно быстрее.
  */
-class MoexApp : Application(), CoreComponentProvider {
+class App : Application(), CoreComponentProvider {
 
     override val coreComponent: CoreComponent by lazy {
         DaggerCoreComponent.factory().create(this)

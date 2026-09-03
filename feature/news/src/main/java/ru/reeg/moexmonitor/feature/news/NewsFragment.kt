@@ -20,10 +20,9 @@ import ru.reeg.moexmonitor.feature.news.di.DaggerNewsComponent
 class NewsFragment : RxFragment(R.layout.fragment_news) {
 
     @Inject
-    lateinit var viewModelFactory: ViewModelFactory
+    lateinit var viewModel: NewsViewModel
 
     private val binding by viewBinding(FragmentNewsBinding::bind)
-    private val viewModel: NewsViewModel by viewModels { viewModelFactory }
 
     private val adapter by lazy {
         NewsAdapter { item ->

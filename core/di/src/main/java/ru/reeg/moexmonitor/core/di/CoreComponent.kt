@@ -25,7 +25,7 @@ import ru.reeg.moexmonitor.core.network.di.NetworkModule
  * Компоненты фич объявляют CoreComponent как dependency и получают
  * доступ ровно к этим типам.
  */
-@Singleton
+@AppScope
 @Component(
     modules = [
         CommonModule::class,
@@ -46,10 +46,6 @@ interface CoreComponent {
 
     @Component.Factory
     interface Factory {
-        /**
-         * @BindsInstance — способ положить в граф уже готовый объект.
-         * В Hilt это делал @ApplicationContext, здесь передаём Application руками.
-         */
         fun create(@BindsInstance @ApplicationContext context: Context): CoreComponent
     }
 }

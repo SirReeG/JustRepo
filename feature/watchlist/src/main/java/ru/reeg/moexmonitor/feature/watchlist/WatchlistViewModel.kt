@@ -8,10 +8,10 @@ import ru.reeg.moexmonitor.core.common.rx.SchedulerProvider
 import ru.reeg.moexmonitor.core.data.repository.WatchlistRepository
 import ru.reeg.moexmonitor.core.model.SecurityQuote
 
-class WatchlistViewModel @Inject constructor(
+class WatchlistViewModel(
     private val watchlistRepository: WatchlistRepository,
     private val schedulers: SchedulerProvider,
-) : ViewModel() {
+    ) : ViewModel() {
 
     private val disposables = CompositeDisposable()
 

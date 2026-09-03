@@ -18,7 +18,7 @@ import ru.reeg.moexmonitor.feature.news.di.DaggerNewsComponent
 class NewsDetailFragment : RxFragment(R.layout.fragment_news_detail) {
 
     @Inject
-    lateinit var viewModelFactory: NewsDetailViewModelFactory
+    lateinit var viewModel: NewsDetailViewModel
 
     private val binding by viewBinding(FragmentNewsDetailBinding::bind)
 
@@ -26,7 +26,6 @@ class NewsDetailFragment : RxFragment(R.layout.fragment_news_detail) {
         requireArguments().getLong(NewsDetailViewModel.ARG_NEWS_ID)
     }
 
-    private val viewModel: NewsDetailViewModel by viewModels { viewModelFactory.create(newsId) }
 
     override fun onAttach(context: Context) {
         DaggerNewsComponent.factory().create(coreComponent()).inject(this)

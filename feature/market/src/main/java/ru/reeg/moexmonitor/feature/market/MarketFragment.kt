@@ -27,10 +27,9 @@ import ru.reeg.moexmonitor.feature.market.di.DaggerMarketComponent
 class MarketFragment : RxFragment(R.layout.fragment_market) {
 
     @Inject
-    lateinit var viewModelFactory: ViewModelFactory
+    lateinit var viewModel: MarketViewModel
 
     private val binding by viewBinding(FragmentMarketBinding::bind)
-    private val viewModel: MarketViewModel by viewModels { viewModelFactory }
 
     private val adapter by lazy {
         SecurityQuoteAdapter(
@@ -39,17 +38,10 @@ class MarketFragment : RxFragment(R.layout.fragment_market) {
         )
     }
 
-    /**
-     * Инъекция до super.onAttach: к моменту восстановления состояния
-     * viewModelFactory уже должна быть проинициализирована.
-     */
-    override fun onAttach(context: Context) {
-        DaggerMarketComponent.factory().create(coreComponent()).inject(this)
-        super.onAttach(context)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        DaggerMarketComponent.factory().create(coreComponent()).inject(this)
         setupList()
         setupTabs()
         setupSearch()
