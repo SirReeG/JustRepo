@@ -1,6 +1,8 @@
 package ru.reeg.moexmonitor.feature.news.di
 
+import dagger.BindsInstance
 import dagger.Component
+import ru.reeg.moexmonitor.core.data.repository.NewsRepository
 import ru.reeg.moexmonitor.core.di.CoreComponent
 import ru.reeg.moexmonitor.core.di.FeatureScope
 import ru.reeg.moexmonitor.feature.news.NewsDetailFragment
@@ -13,7 +15,6 @@ import ru.reeg.moexmonitor.feature.news.NewsFragment
 )
 interface NewsComponent {
     fun inject(fragment: NewsFragment)
-
     fun inject(fragment: NewsDetailFragment)
 
     @Component.Factory

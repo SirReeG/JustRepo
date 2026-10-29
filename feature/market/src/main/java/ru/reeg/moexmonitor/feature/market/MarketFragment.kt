@@ -41,7 +41,7 @@ class MarketFragment : RxFragment(R.layout.fragment_market) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        DaggerMarketComponent.factory().create(coreComponent()).inject(this)
+        DaggerMarketComponent.factory().create().inject(this)
         setupList()
         setupTabs()
         setupSearch()

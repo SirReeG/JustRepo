@@ -40,13 +40,10 @@ class SecurityFragment : RxFragment(R.layout.fragment_security) {
 
     private var favoriteItem: MenuItem? = null
 
-    override fun onAttach(context: Context) {
-        DaggerSecurityComponent.factory().create(coreComponent()).inject(this)
-        super.onAttach(context)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        DaggerSecurityComponent.factory().create(coreComponent()).inject(this)
         setupToolbar()
         setupRangeTabs()
         observeState()
@@ -80,7 +77,6 @@ class SecurityFragment : RxFragment(R.layout.fragment_security) {
                 override fun onTabReselected(tab: TabLayout.Tab) = Unit
             },
         )
-        // По умолчанию открыт месяц — выделяем соответствующую вкладку.
         getTabAt(RANGES.indexOfFirst { it.first == CandleRange.MONTH })?.select()
     }
 

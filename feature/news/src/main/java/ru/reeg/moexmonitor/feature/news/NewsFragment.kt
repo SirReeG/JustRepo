@@ -33,13 +33,10 @@ class NewsFragment : RxFragment(R.layout.fragment_news) {
         }
     }
 
-    override fun onAttach(context: Context) {
-        DaggerNewsComponent.factory().create(coreComponent()).inject(this)
-        super.onAttach(context)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        DaggerNewsComponent.factory().create(coreComponent()).inject(this)
         with(binding) {
             recyclerNews.layoutManager = LinearLayoutManager(requireContext())
             recyclerNews.adapter = adapter

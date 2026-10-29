@@ -27,13 +27,11 @@ class NewsDetailFragment : RxFragment(R.layout.fragment_news_detail) {
     }
 
 
-    override fun onAttach(context: Context) {
-        DaggerNewsComponent.factory().create(coreComponent()).inject(this)
-        super.onAttach(context)
-    }
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        DaggerNewsComponent.factory().create(coreComponent()).inject(this)
         binding.toolbarNewsDetail.setNavigationOnClickListener {
             findNavController().navigateUp()
         }
