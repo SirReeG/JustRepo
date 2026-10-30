@@ -25,7 +25,7 @@ import ru.reeg.moexmonitor.core.network.di.NetworkModule
  * Компоненты фич объявляют CoreComponent как dependency и получают
  * доступ ровно к этим типам.
  */
-@AppScope
+@Singleton
 @Component(
     modules = [
         CommonModule::class,

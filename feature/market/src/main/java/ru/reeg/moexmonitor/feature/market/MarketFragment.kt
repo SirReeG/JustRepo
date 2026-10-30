@@ -23,11 +23,18 @@ import ru.reeg.moexmonitor.core.ui.ext.viewBinding
 import ru.reeg.moexmonitor.core.ui.list.SecurityQuoteAdapter
 import ru.reeg.moexmonitor.feature.market.databinding.FragmentMarketBinding
 import ru.reeg.moexmonitor.feature.market.di.DaggerMarketComponent
+import ru.reeg.moexmonitor.feature.market.di.MarketComponent
+import ru.reeg.moexmonitor.feature.market.di.MarketFragmentComponentProvider
 
-class MarketFragment : RxFragment(R.layout.fragment_market) {
+class MarketFragment() : RxFragment(R.layout.fragment_market), MarketFragmentComponentProvider {
+
 
     @Inject
     lateinit var viewModel: MarketViewModel
+
+    override val marketFragmentComponentProvider: MarketComponent by lazy {
+        MarketComponent.create(this)
+    }
 
     private val binding by viewBinding(FragmentMarketBinding::bind)
 
@@ -41,7 +48,6 @@ class MarketFragment : RxFragment(R.layout.fragment_market) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        DaggerMarketComponent.factory().create().inject(this)
         setupList()
         setupTabs()
         setupSearch()

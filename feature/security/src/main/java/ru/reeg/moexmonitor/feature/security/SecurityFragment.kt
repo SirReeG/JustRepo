@@ -1,6 +1,5 @@
 package ru.reeg.moexmonitor.feature.security
 
-import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -12,17 +11,21 @@ import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.tabs.TabLayout
 import javax.inject.Inject
 import ru.reeg.moexmonitor.core.common.format.MoexFormat
-import ru.reeg.moexmonitor.core.di.coreComponent
 import ru.reeg.moexmonitor.core.model.CandleRange
 import ru.reeg.moexmonitor.core.model.MarketSegment
 import ru.reeg.moexmonitor.core.ui.base.RxFragment
 import ru.reeg.moexmonitor.core.ui.ext.viewBinding
 import ru.reeg.moexmonitor.feature.security.databinding.FragmentSecurityBinding
 import ru.reeg.moexmonitor.feature.security.databinding.ItemStatRowBinding
-import ru.reeg.moexmonitor.feature.security.di.DaggerSecurityComponent
+import ru.reeg.moexmonitor.feature.security.di.SecurityComponent
+import ru.reeg.moexmonitor.feature.security.di.SecurityFragmentComponentProvider
 import ru.reeg.moexmonitor.core.ui.R as UiR
 
-class SecurityFragment : RxFragment(R.layout.fragment_security) {
+class SecurityFragment() : RxFragment(R.layout.fragment_security), SecurityFragmentComponentProvider {
+
+    override val securityComponentProvider: SecurityComponent by lazy {
+        SecurityComponent.create(this)
+    }
 
     @Inject
     lateinit var viewModelFactory: SecurityViewModelFactory
@@ -43,7 +46,7 @@ class SecurityFragment : RxFragment(R.layout.fragment_security) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        DaggerSecurityComponent.factory().create(coreComponent()).inject(this)
+        securityComponentProvider.inject(this)
         setupToolbar()
         setupRangeTabs()
         observeState()
